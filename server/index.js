@@ -39,19 +39,19 @@ app.get('/', (req, res) => {
   res.send('Hi');
 });
 
-app.get('/values/all', async (req, res) => {
+app.get('/values/all', async (req, res) => { //Fib.js route /api/values/all
   const values = await pgClient.query('SELECT * from values');
 
   res.send(values.rows);
 });
 
-app.get('/values/current', async (req, res) => {
+app.get('/values/current', async (req, res) => { //Fib.js route /api/values/current
   redisClient.hgetall('values', (err, values) => {
     res.send(values);
   });
 });
 
-app.post('/values', async (req, res) => {
+app.post('/values', async (req, res) => { //Fib.js route /api/values
   const index = req.body.index;
 
   if (parseInt(index) > 40) {
