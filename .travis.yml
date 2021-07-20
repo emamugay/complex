@@ -24,15 +24,15 @@ after_success:
   - docker push magscy/multi-server
   - docker push magscy/multi-worker
 
-deploy:
-  provider: elasticbeanstalk
-  region: ap-southeast-1
-  app: multi-docker
-  env: MultiDocker-env
-  bucket_name: elasticbeanstalk-ap-southeast-1-764913471004
-  bucket_path: docker-multi
-  on:
-    branch: master
-  access_key_id: $AWS_ACCESS_KEY
-  secret_access_key:
-    secure: $AWS_SECRET_KEY
+# deploy:
+#   provider: elasticbeanstalk
+#   region: ap-southeast-1
+#   app: multi-docker
+#   env: MultiDocker-env
+#   bucket_name: elasticbeanstalk-ap-southeast-1-764913471004
+#   bucket_path: docker-multi
+#   on:
+#     branch: master
+#   access_key_id: $AWS_ACCESS_KEY
+#   secret_access_key:
+#     secure: $AWS_SECRET_KEY
