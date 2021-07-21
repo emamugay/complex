@@ -25,14 +25,18 @@ after_success:
   - docker push magscy/multi-worker
 
 deploy:
+  edge: true
   provider: elasticbeanstalk
   region: ap-southeast-1
   app: multidocker
-  env: Multidocker-env-1
+  env: Multidocker-env
   bucket_name: elasticbeanstalk-ap-southeast-1-764913471004
   bucket_path: multidocker
   on:
     branch: master
   access_key_id: $AWS_ACCESS_KEY
-  secret_access_key:
-    secure: $AWS_SECRET_KEY
+  secret_access_key: $AWS_SECRET_KEY
+
+    # access_key_id: $AWS_ACCESS_KEY
+  # secret_access_key:
+  #   secure: $AWS_SECRET_KEY
